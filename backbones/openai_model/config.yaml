@@ -1,5 +1,0 @@
-num_processes: 10 # Reduce num_processes if RateLimitError
-max_tokens: 256
-temperature: 0
-top_p: 0
-api_key: 

@@ -1,0 +1,154 @@
+# Model configurations for TAP. See frameworks/tap/ for usage.
+# Required fields: model_name_or_path, model_type
+# Optional fields: num_gpus, dtype, chat_template, use_fast_tokenizer, etc.
+
+# ===================== Open-Source Models ===================== #
+
+llama2_7b:
+  model:
+    model_name_or_path: meta-llama/Llama-2-7b-chat-hf
+    use_fast_tokenizer: false
+    dtype: float16
+    chat_template: llama-2
+  num_gpus: 1
+  model_type: open_source
+
+llama2_13b:
+  model:
+    model_name_or_path: meta-llama/Llama-2-13b-chat-hf
+    use_fast_tokenizer: false
+    dtype: float16
+    chat_template: llama-2
+  num_gpus: 1
+  model_type: open_source
+
+llama2_70b:
+  model:
+    model_name_or_path: meta-llama/Llama-2-70b-chat-hf
+    use_fast_tokenizer: false
+    dtype: float16
+    chat_template: llama-2
+  num_gpus: 2
+  model_type: open_source
+
+vicuna_7b_v1_5:
+  model:
+    model_name_or_path: lmsys/vicuna-7b-v1.5
+    use_fast_tokenizer: false
+    dtype: float16
+    chat_template: vicuna
+  num_gpus: 1
+  model_type: open_source
+
+vicuna_13b_v1_5:
+  model:
+    model_name_or_path: lmsys/vicuna-13b-v1.5
+    use_fast_tokenizer: false
+    dtype: float16
+    chat_template: vicuna
+  num_gpus: 1
+  model_type: open_source
+
+mistral_7b_v2:
+  model:
+    model_name_or_path: mistralai/Mistral-7B-Instruct-v0.2
+    use_fast_tokenizer: false
+    dtype: bfloat16
+    chat_template: mistral
+  num_gpus: 1
+  model_type: open_source
+
+mixtral_8x7b:
+  model:
+    model_name_or_path: mistralai/Mixtral-8x7B-Instruct-v0.1
+    use_fast_tokenizer: false
+    dtype: bfloat16
+    chat_template: mistral
+  num_gpus: 2
+  model_type: open_source
+
+qwen_7b_chat:
+  model:
+    model_name_or_path: Qwen/Qwen-7B-Chat
+    use_fast_tokenizer: true
+    dtype: bfloat16
+    pad_token: "<|extra_0|>"
+    eos_token: "<|im_end|>"
+    trust_remote_code: true
+    chat_template: qwen
+  num_gpus: 1
+  model_type: open_source
+
+qwen_14b_chat:
+  model:
+    model_name_or_path: Qwen/Qwen-14B-Chat
+    use_fast_tokenizer: true
+    trust_remote_code: true
+    dtype: bfloat16
+    pad_token: "<|extra_0|>"
+    eos_token: "<|im_end|>"
+    chat_template: qwen
+  num_gpus: 1
+  model_type: open_source
+
+qwen_72b_chat:
+  model:
+    model_name_or_path: Qwen/Qwen-72B-Chat
+    use_fast_tokenizer: true
+    dtype: bfloat16
+    pad_token: "<|extra_0|>"
+    eos_token: "<|im_end|>"
+    trust_remote_code: true
+    chat_template: qwen
+  num_gpus: 4
+  model_type: open_source
+
+# ===================== Closed-Source Models ===================== #
+
+gpt-3.5-turbo-1106:
+  model:
+    model_name_or_path: gpt-3.5-turbo-1106
+    token: "${OPENAI_API_KEY}"
+  model_type: closed_source
+
+gpt-3.5-turbo-0613:
+  model:
+    model_name_or_path: gpt-3.5-turbo-0613
+    token: "${OPENAI_API_KEY}"
+  model_type: closed_source
+
+gpt-4-1106-preview:
+  model:
+    model_name_or_path: gpt-4-1106-preview
+    token: "${OPENAI_API_KEY}"
+  model_type: closed_source
+
+gpt-4-0613:
+  model:
+    model_name_or_path: gpt-4-0613
+    token: "${OPENAI_API_KEY}"
+  model_type: closed_source
+
+claude-instant-1:
+  model:
+    model_name_or_path: claude-instant-1
+    token: "${ANTHROPIC_API_KEY}"
+  model_type: closed_source
+
+claude-2.1:
+  model:
+    model_name_or_path: claude-2.1
+    token: "${ANTHROPIC_API_KEY}"
+  model_type: closed_source
+
+claude-2:
+  model:
+    model_name_or_path: claude-2
+    token: "${ANTHROPIC_API_KEY}"
+  model_type: closed_source
+
+gemini:
+  model:
+    model_name_or_path: gemini-pro
+    token: "${GOOGLE_API_KEY}"
+  model_type: closed_source

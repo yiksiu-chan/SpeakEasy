@@ -1,9 +1,0 @@
-backbones:
-  base: meta-llama/Meta-Llama-3.1-8B-Instruct
-  actionable: narutatsuri/evaluation-actionable
-  informative: narutatsuri/evaluation-informative
-pipe_kwargs:
-  top_k: None
-  function_to_apply: "sigmoid"
-pipe_torch_dtype: bfloat16
-pad_token: "[PAD]"

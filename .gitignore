@@ -1,7 +1,41 @@
-__pycache__
-.ipynb_checkpoints
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+*.egg
+dist/
+build/
+.eggs/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Testing
+.pytest_cache/
+.ruff_cache/
+
+# Project-specific
 .slurm_outputs/
-.venv
-.archive
+.archive/
+.claude/
 wandb/
 keys.json
+*.env
+google_credentials.json
+
+# OS
+.DS_Store
+Thumbs.db

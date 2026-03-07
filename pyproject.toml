@@ -1,0 +1,82 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "speakeasy"
+version = "1.0.0"
+description = "Speak Easy: Eliciting Harmful Jailbreaks from LLMs with Simple Interactions"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.9"
+authors = [
+    {name = "Yik Siu Chan", email = "yik_siu_chan@brown.edu"},
+    {name = "Narutatsu Ri", email = "nr3764@princeton.edu"},
+]
+keywords = ["llm", "jailbreak", "safety", "red-teaming", "multilingual"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "torch>=2.0",
+    "transformers>=4.40",
+    "numpy>=1.24",
+    "openai>=1.0",
+    "tqdm>=4.60",
+    "pyyaml>=6.0",
+    "pydantic>=2.0",
+    "pydantic-settings>=2.0",
+]
+
+[project.optional-dependencies]
+vllm = ["vllm>=0.6", "ray>=2.0"]
+azure = ["azure-ai-translation-text>=1.0", "azure-core>=1.30"]
+google = ["google-cloud-translate>=3.0"]
+deep-translator = ["deep-translator>=1.0"]
+tap = ["fastchat>=0.1", "accelerate>=1.0"]
+all = [
+    "speakeasy[vllm,azure,google,deep-translator,tap]",
+]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.4",
+    "mypy>=1.10",
+    "pre-commit>=3.0",
+]
+
+[project.scripts]
+speakeasy = "speakeasy.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/yiksiu-chan/speakeasy"
+Paper = "https://arxiv.org/abs/2502.04322"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W", "UP"]
+
+[tool.ruff.lint.per-file-ignores]
+"src/speakeasy/frameworks/tap/system_prompts.py" = ["E501"]
+"src/speakeasy/frameworks/tap/model_utils.py" = ["E501"]
+
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
