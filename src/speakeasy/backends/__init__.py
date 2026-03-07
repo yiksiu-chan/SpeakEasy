@@ -40,6 +40,4 @@ def get_backend(model_name: str) -> Backend:
 
         return VLLMBackend(model_id)
     else:
-        raise ValueError(
-            f"Unknown backend source '{source}'. Choose from: openai, vllm"
-        )
+        raise ValueError(f"Unknown backend source '{source}'. Choose from: openai, vllm")

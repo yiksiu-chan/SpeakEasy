@@ -50,9 +50,7 @@ class TestGetFramework:
         return MagicMock()
 
     def test_baseline_dr(self):
-        with patch(
-            "speakeasy.frameworks.direct_request.DirectRequest.__init__", return_value=None
-        ):
+        with patch("speakeasy.frameworks.direct_request.DirectRequest.__init__", return_value=None):
             fw = get_framework("baseline_dr", self._mock_model())
             from speakeasy.frameworks.direct_request import DirectRequest
 
@@ -73,9 +71,7 @@ class TestGetFramework:
             assert isinstance(fw, TAP)
 
     def test_speakeasy_dr(self):
-        with patch(
-            "speakeasy.frameworks.speakeasy.SpeakEasyPipeline.__init__", return_value=None
-        ):
+        with patch("speakeasy.frameworks.speakeasy.SpeakEasyPipeline.__init__", return_value=None):
             fw = get_framework("speakeasy_dr", self._mock_model())
             from speakeasy.frameworks.speakeasy import SpeakEasyPipeline
 
