@@ -1,3 +1,5 @@
+
+
 # Speak Easy
 
 **Eliciting Harmful Jailbreaks from LLMs with Simple Interactions**
@@ -212,6 +214,8 @@ export SPEAKEASY_AZURE_TRANSLATOR_REGION="eastus"
 export SPEAKEASY_GOOGLE_PROJECT_ID="my-project"
 export SPEAKEASY_GOOGLE_CREDENTIALS_PATH="/path/to/creds.json"
 ```
+
+Optionally, set `SPEAKEASY_OPENAI_BASE_URL` to point to an OpenAI-compatible endpoint (e.g. `http://localhost:8000/v1`).
 
 ## Citation
 
